@@ -25,13 +25,6 @@
          function onload() {
             setTitle();
             redirect();
-           const video = document.getElementById('rickroll.mp4');
-        video.play(); // Start playing the video immediately
-
-        setInterval(() => {
-          video.currentTime = 0;  // Reset the video to the beginning
-          video.play();           // Play the video from the start
-        }, 5000); // restart every 5 seconds
          }
          
          window.onload = onload();
