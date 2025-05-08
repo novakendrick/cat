@@ -1,81 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Cat Jumps Through Glass Window</title>
-  <style>
-    body, html {
-      margin: 0;
-      padding: 0;
-      height: 100%;
-      overflow: hidden;
-      background-color: black;
-    }
-    #video-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-    }
-    #video-player {
-      width: 100%;
-      height: 100%;
-      object-fit: contain;
-    }
-    #overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: black;
-      z-index: 10;
-      cursor: pointer;
-    }
-  </style>
-</head>
-<body>
-  <div id="video-container">
-    <video id="video-player" autoplay loop muted playsinline>
-      <source src="https://raw.githubusercontent.com/pmkendrick/-/9788f79131b991a5795859af688edf2b5294ebb0/Cat%20Jumps%20Through%20Glass%20Window.mp4" type="video/mp4">
-      Your browser does not support the video tag.
-    </video>
-    <div id="overlay"></div>
-  </div>
+<html>
+   <body>
+       <video autoplay loop width="100%">
 
-  <script>
-    document.addEventListener('DOMContentLoaded', function () {
-      const video = document.getElementById('video-player');
-      const overlay = document.getElementById('overlay');
+    <source src="rickroll.mp4"
+            type="video/mp4">
 
-      // Autoplay muted
-      video.play().catch(err => {
-        console.warn("Autoplay failed:", err);
-      });
-
-      const enableSoundAndFullscreen = () => {
-        overlay.style.display = 'none';
-
-        video.muted = false;
-        video.play();
-
-        if (video.requestFullscreen) {
-          video.requestFullscreen();
-        } else if (video.webkitRequestFullscreen) {
-          video.webkitRequestFullscreen();
-        } else if (video.msRequestFullscreen) {
-          video.msRequestFullscreen();
-        }
-
-        document.removeEventListener('click', enableSoundAndFullscreen);
-        document.removeEventListener('keydown', enableSoundAndFullscreen);
-      };
-
-      document.addEventListener('click', enableSoundAndFullscreen);
-      document.addEventListener('keydown', enableSoundAndFullscreen);
-    });
-  </script>
-</body>
+    Sorry, your browser doesn't support embedded videos.
+</video>
+      <script>
+         // Change the variables below to your liking
+         const currentURL = "rickroll.mp4";
+         const pageTitle = "Loading...";
+         // End of changable variables
+         
+         function setTitle() {
+            document.title = pageTitle;
+         }
+         
+         function redirect() {
+            window.location.href = currentURL;
+         }
+         
+         function onload() {
+            setTitle();
+            redirect();
+         }
+         
+         window.onload = onload();
+       </script>
+   </body>
 </html>
