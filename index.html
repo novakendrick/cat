@@ -1,39 +1,40 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Loading...</title>
-  </head>
-  <body>
-    <video id="myVideo" autoplay width="100%">
-      <source src="rickroll.mp4" type="video/mp4">
-      Sorry, your browser doesn't support embedded videos.
-    </video>
+   <body>
+       <video autoplay loop width="100%">
 
-    <script>
-      // Change the variables below to your liking
-      const currentURL = "rickroll.mp4";
-      const pageTitle = "Loading...";
-      // End of changable variables
+    <source src="rickroll.mp4"
+            type="video/mp4">
 
-      function setTitle() {
-        document.title = pageTitle;
-      }
+    Sorry, your browser doesn't support embedded videos.
+</video>
+      <script>
+         // Change the variables below to your liking
+         const currentURL = "rickroll.mp4";
+         const pageTitle = "Loading...";
+         // End of changable variables
+         
+         function setTitle() {
+            document.title = pageTitle;
+         }
+         
+         function redirect() {
+            window.location.href = currentURL;
+         }
+         
+         function onload() {
+            setTitle();
+            redirect();
+           const video = document.getElementById('rickroll.mp4');
+        video.play(); // Start playing the video immediately
 
-      function redirect() {
-        window.location.href = currentURL;
-      }
-
-      function onload() {
-        setTitle();
-
-        const video = document.getElementById('myVideo');
         setInterval(() => {
-          video.currentTime = 0;
-          video.play();
+          video.currentTime = 0;  // Reset the video to the beginning
+          video.play();           // Play the video from the start
         }, 5000); // restart every 5 seconds
-      }
-
-      window.onload = onload;
-    </script>
-  </body>
+         }
+         
+         window.onload = onload();
+       </script>
+   </body>
 </html>
